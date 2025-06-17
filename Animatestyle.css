@@ -1,0 +1,132 @@
+/* General reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #0b1522;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.bubbles {
+    position: absolute;
+    display: flex;
+    z-index: 1;
+}
+
+.bubbles span {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #4fc3dc;
+    margin: 0 40px;
+    box-shadow: 0 0 0 10px #4fc2dc44, 0 0 50px #4fc3dc, 0 0 100px #4fc3dc;
+    animation: animate 10s linear infinite;
+    animation-duration: calc(125s / var(--i));
+}
+
+.bubbles span:nth-child(even) {
+    background-color: #ff2d75;
+    box-shadow: 0 0 0 10px #ff2d7544, 0 0 50px #ff2d75, 0 0 100px #ff2d75;
+}
+
+@keyframes animate {
+    0% {
+        transform: translateY(100vh) scale(0);
+    }
+    100% {
+        transform: translateY(-100vh) scale(1);
+    }
+}
+
+/* Heart animation */
+.heart {
+    height: 150px;
+    width: 150px;
+    background-color: #f20044;
+    position: absolute;
+    top: 50%;
+    left: 75%;
+    transform: rotate(-45deg);
+    z-index: 0;
+    box-shadow: -10px 10px 90px #f20044;
+    animation: hearts 0.6s linear infinite;
+}
+
+@keyframes hearts {
+    0% {
+        transform: rotate(-45deg) scale(1.07);
+    }
+    80% {
+        transform: rotate(-45deg) scale(1.07);
+    }
+}
+
+.heart::before, .heart::after {
+    content: ' ';
+    position: absolute;
+    height: 150px;
+    width: 150px;
+    background-color: #f20044;
+    border-radius: 50%;
+    box-shadow: -10px 10px 90px #f20044;
+}
+
+.heart::before {
+    top: -50%;
+}
+
+.heart::after {
+    right: -50%;
+}
+
+/* Paragraph styling */
+.paragraph {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+    color: white;
+    font-size: 20px;
+    text-align: center;
+    font-family: cursive;
+    max-width: 600px;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.5); /* Optional for better readability */
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.7), 0 0 30px rgba(255, 0, 0, 0.5);
+    border-radius: 15px;
+}
+.text{
+    position: relative;
+    left:550px;
+    top:20px;
+    color: white;
+    font-size: 35px;
+    font-family: cursive;
+    animation: texts 0.6s linear infinite;
+
+    
+}
+@keyframes texts {
+    0%{
+        transform: scale(1.07);
+    }
+    
+}
